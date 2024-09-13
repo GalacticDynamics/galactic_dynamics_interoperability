@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 
 [project]
-name = "galactic_dynamics_interop"
+name = "galactic_dynamics_interoperability"
 authors = [
   { name = "Galactic Dynamics Interoperability Library Maintainers", email = "nstarman@users.noreply.github.com" },
 ]
@@ -50,21 +50,21 @@ docs = [
   "furo>=2023.08.17",
 ]
 dev = [
-  "galactic_dynamics_interop[all]",
-  "galactic_dynamics_interop[test]",
-  "galactic_dynamics_interop[docs]",
+  "galactic_dynamics_interoperability[all]",
+  "galactic_dynamics_interoperability[test]",
+  "galactic_dynamics_interoperability[docs]",
 ]
 
 [project.urls]
-Homepage = "https://github.com/GalacticDynamics/galactic_dynamics_interop"
-"Bug Tracker" = "https://github.com/GalacticDynamics/galactic_dynamics_interop/issues"
-Discussions = "https://github.com/GalacticDynamics/galactic_dynamics_interop/discussions"
-Changelog = "https://github.com/GalacticDynamics/galactic_dynamics_interop/releases"
+Homepage = "https://github.com/GalacticDynamics/galactic_dynamics_interoperability"
+"Bug Tracker" = "https://github.com/GalacticDynamics/galactic_dynamics_interoperability/issues"
+Discussions = "https://github.com/GalacticDynamics/galactic_dynamics_interoperability/discussions"
+Changelog = "https://github.com/GalacticDynamics/galactic_dynamics_interoperability/releases"
 
 
 [tool.hatch]
 version.source = "vcs"
-build.hooks.vcs.version-file = "src/galactic_dynamics_interop/_version.py"
+build.hooks.vcs.version-file = "src/galactic_dynamics_interoperability/_version.py"
 
 [tool.hatch.envs.default]
 features = ["test"]
@@ -85,7 +85,7 @@ testpaths = [
 
 
 [tool.coverage]
-run.source = ["galactic_dynamics_interop"]
+run.source = ["galactic_dynamics_interoperability"]
 report.exclude_also = [
   '\.\.\.',
   'if typing.TYPE_CHECKING:',
@@ -102,7 +102,7 @@ disallow_untyped_defs = false
 disallow_incomplete_defs = false
 
 [[tool.mypy.overrides]]
-module = "galactic_dynamics_interop.*"
+module = "galactic_dynamics_interoperability.*"
 disallow_untyped_defs = true
 disallow_incomplete_defs = true
 

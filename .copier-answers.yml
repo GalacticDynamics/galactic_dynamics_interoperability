@@ -6,7 +6,7 @@ email: nstarman@users.noreply.github.com
 full_name: Galactic Dynamics Interoperability Library Maintainers
 license: MIT
 org: GalacticDynamics
-project_name: galactic_dynamics_interop
+project_name: galactic_dynamics_interoperability
 project_short_description: Interoperability Between Galactic Dynamics Libraries
-url: https://github.com/GalacticDynamics/galactic_dynamics_interop
+url: https://github.com/GalacticDynamics/galactic_dynamics_interoperability
 vcs: true

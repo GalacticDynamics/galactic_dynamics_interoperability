@@ -71,7 +71,7 @@ pytest
 Use pytest-cov to generate coverage reports:
 
 ```bash
-pytest --cov=galactic_dynamics_interop
+pytest --cov=galactic_dynamics_interoperability
 ```
 
 # Building docs

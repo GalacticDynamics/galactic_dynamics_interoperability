@@ -2,10 +2,10 @@
 
 import importlib.metadata
 
-project = "galactic_dynamics_interop"
+project = "galactic_dynamics_interoperability"
 copyright = "2024, Galactic Dynamics Interoperability Library Maintainers"  # noqa: A001
 author = "Galactic Dynamics Interoperability Library Maintainers"
-version = release = importlib.metadata.version("galactic_dynamics_interop")
+version = release = importlib.metadata.version("galactic_dynamics_interoperability")
 
 extensions = [
     "myst_parser",

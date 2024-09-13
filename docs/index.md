@@ -1,4 +1,4 @@
-# galactic_dynamics_interop
+# galactic_dynamics_interoperability
 
 ```{toctree}
 :maxdepth: 2
