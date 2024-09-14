@@ -77,6 +77,8 @@ addopts = ["-ra", "--showlocals", "--strict-markers", "--strict-config"]
 xfail_strict = true
 filterwarnings = [
   "error",
+  "ignore:ast\\.Str is deprecated:DeprecationWarning",  # from Sybil
+  "ignore:Attribute s is deprecated",  # from Sybil
 ]
 log_cli_level = "INFO"
 testpaths = [
