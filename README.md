@@ -5,7 +5,7 @@
 > public use.
 
 `galactic_dynamics_interoperability` provides tools for converting objects
-between galactic dynamics Library.
+between galactic dynamics Python libraries.
 
 ## Installation
 
@@ -29,10 +29,10 @@ different galactic dynamics libraries. These types are used for dispatching to
 converters:
 
 - `AbstractInteroperableLibrary` : the base class
-- `AgamaLibrary` : represents `agama`
-- `GalaLibrary` : represents `gala`
-- `GalaxLibrary` : represents `galax`
-- `GalpyLibrary` : represents `galpy`
+- `AgamaLibrary` : represents [`agama`][Agama]
+- `GalaLibrary` : represents [`gala`][Gala]
+- `GalaxLibrary` : represents [`galax`][Galax]
+- `GalpyLibrary` : represents [`galpy`][Galpy]
 
 To convert potential objects between libraries use `convert_potential`. As an
 example, here is converting from a `gala` Potential to a `galax` Potential.
@@ -57,11 +57,13 @@ KeplerPotential(
 - _Why have the argument order `convert_potential(to, from)`, not
   `convert_potential(from, to)`?_
 
-  This is because of how Julia structures its conversions (`convert`), from
+  This is because of how Julia structures its conversions
+  ([`convert`](https://docs.julialang.org/en/v1/base/base/#Base.convert)), from
   which this library draws inspiration. We aim to increase interoperability
   between galactic dynamics libraries and with the ongoing development of
-  Python-Julia bridges, Julia-wrapped-into-Python galactic dynamics libraries
-  are well within our remit.
+  [Python-Julia bridges](https://juliapackages.com/p/pythoncall),
+  Julia-wrapped-into-Python galactic dynamics libraries are well within our
+  remit.
 
 ## Citation
 
@@ -80,6 +82,16 @@ consider citing this work.
 We welcome contributions!
 
 <!-- prettier-ignore-start -->
+
+<!-- Links -->
+
+[Agama]:                    https://pypi.org/project/agama/
+[Gala]:                     https://pypi.org/project/gala/
+[Galax]:                    https://pypi.org/project/galax/
+[Galpy]:                    https://pypi.org/project/galpy/
+
+<!-- Badges -->
+
 [actions-badge]:            https://github.com/GalacticDynamics/galactic_dynamics_interoperability/workflows/CI/badge.svg
 [actions-link]:             https://github.com/GalacticDynamics/galactic_dynamics_interoperability/actions
 [github-discussions-badge]: https://img.shields.io/static/v1?label=Discussions&message=Ask&color=blue&logo=github
