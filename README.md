@@ -83,6 +83,8 @@ We welcome contributions!
 [actions-badge]:            https://github.com/GalacticDynamics/galactic_dynamics_interoperability/workflows/CI/badge.svg
 [actions-link]:             https://github.com/GalacticDynamics/galactic_dynamics_interoperability/actions
 [github-discussions-badge]: https://img.shields.io/static/v1?label=Discussions&message=Ask&color=blue&logo=github
+[codecov-badge]:            https://codecov.io/gh/GalacticDynamics/galactic_dynamics_interoperability/graph/badge.svg
+[codecov-link]:             https://codecov.io/gh/GalacticDynamics/galactic_dynamics_interoperability
 [github-discussions-link]:  https://github.com/GalacticDynamics/galactic_dynamics_interoperability/discussions
 [pypi-link]:                https://pypi.org/project/galactic_dynamics_interoperability/
 [pypi-platforms]:           https://img.shields.io/pypi/pyversions/galactic_dynamics_interoperability
