@@ -1,58 +1,32 @@
 """Input/output/conversion of potential objects.
 
 This module contains the machinery for I/O and conversion of potential objects.
-Conversion is useful for e.g. converting a
-:class:`galax.potential.AbstractPotential` object to a
-:class:`gala.potential.PotentialBase` object.
+Conversion is useful for e.g. converting a `galax.potential.AbstractPotential`
+object to a `gala.potential.PotentialBase` object.
 """
 
 from __future__ import annotations
 
-__all__ = [
-    "convert_potential",
-    "AbstractInteroperableLibrary",
-    "GalaxLibrary",
-    "GalaLibrary",
-    "GalpyLibrary",
-]
+__all__ = ["convert_potential"]
 
 
-from typing import Any, final
+from typing import Annotated as Ann, Any
+from typing_extensions import Doc
 
 from plum import dispatch
-from typing_extensions import Never
 
-
-class AbstractInteroperableLibrary:
-    """Abstract base class for library type on which to dispatch."""
-
-    def __new__(cls: type[AbstractInteroperableLibrary]) -> Never:
-        msg = "cannot instantiate AbstractInteroperableLibrary"
-
-        raise ValueError(msg)
-
-
-@final
-class GalaxLibrary(AbstractInteroperableLibrary):
-    """The :mod:`galax` library."""
-
-
-@final
-class GalaLibrary(AbstractInteroperableLibrary):
-    """The :mod:`gala` library."""
-
-
-@final
-class GalpyLibrary(AbstractInteroperableLibrary):
-    """The :mod:`galpy` library."""
+from ._base import AbstractInteroperableLibrary
 
 
 @dispatch.abstract  # type: ignore[misc]
 def convert_potential(
-    to_: AbstractInteroperableLibrary | Any,  # noqa: ANN401
-    from_: Any,  # noqa: ANN401
+    to_: Ann[
+        AbstractInteroperableLibrary | Any,
+        Doc("The type (or library) to which to convert the potential"),
+    ],
+    from_: Ann[Any, Doc("The potential object to be converted")],
     /,
-    **kwargs: Any,  # noqa: ANN401, ARG001
+    **_: Ann[Any, Doc("extra arguments used in the conversion process")],
 ) -> object:
-    msg = f"cannot convert {from_} to {to_}"
-    raise NotImplementedError(msg)
+    msg = f"cannot convert {from_} to {to_}"  # pragma: no cover
+    raise NotImplementedError(msg)  # pragma: no cover
