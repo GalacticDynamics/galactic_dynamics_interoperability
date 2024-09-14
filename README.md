@@ -1,8 +1,8 @@
 <h1 align='center'> galactic_dynamics_interoperability </h1>
 <h2 align="center"> Interoperability Between Galactic Dynamics Libraries </h2>
 
-> [!WARNING] This package is under active development and is not ready for
-> public use.
+> [!WARNING]
+> This package is under active development and is not ready for public use.
 
 `galactic_dynamics_interoperability` provides tools for converting objects
 between galactic dynamics Python libraries.
