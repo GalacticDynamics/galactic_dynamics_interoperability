@@ -1,156 +1,207 @@
-[build-system]
-requires = ["hatchling", "hatch-vcs"]
-build-backend = "hatchling.build"
-
-
 [project]
-name = "galactic_dynamics_interoperability"
-authors = [
-  { name = "Galactic Dynamics Interoperability Library Maintainers", email = "nstarman@users.noreply.github.com" },
-]
-description = "Interoperability Between Galactic Dynamics Libraries"
-readme = "README.md"
-license.file = "LICENSE"
-requires-python = ">=3.10"
-classifiers = [
-  "Development Status :: 1 - Planning",
-  "Intended Audience :: Science/Research",
-  "Intended Audience :: Developers",
-  "License :: OSI Approved :: MIT License",
-  "Operating System :: OS Independent",
-  "Programming Language :: Python",
-  "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
-  "Programming Language :: Python :: 3.12",
-  "Topic :: Scientific/Engineering",
-  "Typing :: Typed",
-]
-dynamic = ["version"]
-dependencies = [
-  "plum-dispatch",
-]
+  name = "galactic_dynamics_interoperability"
+  authors = [
+    { name = "Galactic Dynamics Interoperability Library Maintainers", email = "nstarman@users.noreply.github.com" },
+  ]
+  description = "Interoperability Between Galactic Dynamics Libraries"
+  readme = "README.md"
+  license.file = "LICENSE"
+  requires-python = ">=3.10"
+  classifiers = [
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python",
+    "Topic :: Scientific/Engineering",
+    "Typing :: Typed",
+  ]
+  dynamic = [
+    "version",
+  ]
+  dependencies = [
+    "plum-dispatch",
+  ]
 
-[project.optional-dependencies]
-all = ["galax", "gala", "galpy"]
-galax = ["galax"]
-gala = ["gala"]
-galpy = ["galpy"]
-test = [
-  "pytest >=6",
-  "pytest-cov >=3",
-  "sybil",
-]
-docs = [
-  "sphinx>=7.0",
-  "myst_parser>=0.13",
-  "sphinx_copybutton",
-  "sphinx_autodoc_typehints",
-  "furo>=2023.08.17",
-]
-dev = [
-  "galactic_dynamics_interoperability[all]",
-  "galactic_dynamics_interoperability[test]",
-  "galactic_dynamics_interoperability[docs]",
-]
+  [project.optional-dependencies]
+    all = [
+      "galactic_dynamics_interoperability[gala]",
+      "galactic_dynamics_interoperability[galax]",
+      "galactic_dynamics_interoperability[galpy]",
+    ]
+    galax = [
+      "galax; python_version >= '3.11'",
+    ]
+    gala = [
+      "gala",
+    ]
+    galpy = [
+      "galpy",
+    ]
 
-[project.urls]
-Homepage = "https://github.com/GalacticDynamics/galactic_dynamics_interoperability"
-"Bug Tracker" = "https://github.com/GalacticDynamics/galactic_dynamics_interoperability/issues"
-Discussions = "https://github.com/GalacticDynamics/galactic_dynamics_interoperability/discussions"
-Changelog = "https://github.com/GalacticDynamics/galactic_dynamics_interoperability/releases"
+  [project.urls]
+    Homepage      = "https://github.com/GalacticDynamics/galactic_dynamics_interoperability"
+    "Bug Tracker" = "https://github.com/GalacticDynamics/galactic_dynamics_interoperability/issues"
+    Discussions   = "https://github.com/GalacticDynamics/galactic_dynamics_interoperability/discussions"
+    Changelog     = "https://github.com/GalacticDynamics/galactic_dynamics_interoperability/releases"
+
+
+[dependency-groups]
+  dev = [
+    "ipykernel>=6.29.5",
+    "cz-conventional-gitmoji>=0.6.1",
+    { include-group = "docs" },
+    { include-group = "test" },
+    "pre-commit>=4.1.0",
+  ]
+  test = [
+    "pytest >=6",
+    "pytest-cov >=3",
+    "sybil",
+  ]
+  docs = [
+    "furo>=2023.08.17",
+    "myst_parser>=0.13",
+    "sphinx>=7.0",
+    "sphinx_autodoc_typehints",
+    "sphinx_copybutton",
+  ]
+
+
+[build-system]
+  requires = [
+    "hatch-vcs",
+    "hatchling",
+  ]
+  build-backend = "hatchling.build"
+
+
+[tool.commitizen]
+  name = "cz_gitmoji"
 
 
 [tool.hatch]
-version.source = "vcs"
-build.hooks.vcs.version-file = "src/galactic_dynamics_interoperability/_version.py"
-
-[tool.hatch.envs.default]
-features = ["test"]
-scripts.test = "pytest {args}"
+  version.source               = "vcs"
+  build.hooks.vcs.version-file = "src/galactic_dynamics_interoperability/_version.py"
 
 
 [tool.pytest.ini_options]
-minversion = "6.0"
-addopts = ["-ra", "--showlocals", "--strict-markers", "--strict-config"]
-xfail_strict = true
-filterwarnings = [
-  "error",
-  "ignore:ast\\.Str is deprecated:DeprecationWarning",  # from Sybil
-  "ignore:Attribute s is deprecated",  # from Sybil
-]
-log_cli_level = "INFO"
-testpaths = [
-  "tests",
-]
+  minversion = "8.0"
+  addopts = [
+    "--showlocals",
+    "--strict-config",
+    "--strict-markers",
+    "-ra",
+  ]
+  xfail_strict = true
+  filterwarnings = [
+    "error",
+    "ignore:Attribute s is deprecated",                  # from Sybil
+    "ignore:ast\\.Str is deprecated:DeprecationWarning", # from Sybil
+  ]
+  log_cli_level = "INFO"
+  testpaths = [
+    "tests",
+  ]
 
 
 [tool.coverage]
-run.source = ["galactic_dynamics_interoperability"]
-report.exclude_also = [
-  '\.\.\.',
-  'if typing.TYPE_CHECKING:',
-]
+  run.source = [
+    "galactic_dynamics_interoperability",
+  ]
+  report.exclude_also = [
+    '\.\.\.',
+    'if typing.TYPE_CHECKING:',
+  ]
 
 [tool.mypy]
-files = ["src"]
-python_version = "3.10"
-warn_unused_configs = true
-strict = true
-enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
-warn_unreachable = true
-disallow_untyped_defs = false
-disallow_incomplete_defs = false
+  files = [
+    "src",
+  ]
+  python_version = "3.10"
+  warn_unused_configs = true
+  strict = true
+  enable_error_code = [
+    "ignore-without-code",
+    "redundant-expr",
+    "truthy-bool",
+  ]
+  warn_unreachable = true
+  disallow_untyped_defs = false
+  disallow_incomplete_defs = false
 
-[[tool.mypy.overrides]]
-module = "galactic_dynamics_interoperability.*"
-disallow_untyped_defs = true
-disallow_incomplete_defs = true
+  [[tool.mypy.overrides]]
+    module                   = "galactic_dynamics_interoperability.*"
+    disallow_untyped_defs    = true
+    disallow_incomplete_defs = true
 
-[[tool.mypy.overrides]]
-module = "plum.*"
-ignore_missing_imports = true
+  [[tool.mypy.overrides]]
+    module                 = "plum.*"
+    ignore_missing_imports = true
 
 
 [tool.ruff]
-src = ["src"]
-target-version = "py310"
+  src = [
+    "src",
+  ]
+  target-version = "py310"
 
-[tool.ruff.lint]
-extend-select = ["ALL"]
-ignore = [
-  "ANN401",   # Dynamically typed expressions
-  "D203",     # 1 blank line required before class docstring
-  "D213",     # multi-line-summary-second-line
-  "ISC001",   # Conflicts with formatter
-  "PLR09",    # Too many <...>
-  "PLR2004",  # Magic value used in comparison
-  "TCH001",   # Move into type-checking block <-- plum-dispatch
-]
+  [tool.ruff.lint]
+    extend-select = [
+      "ALL",
+    ]
+    ignore = [
+      "ANN401",  # Dynamically typed expressions
+      "D203",    # 1 blank line required before class docstring
+      "D213",    # multi-line-summary-second-line
+      "ISC001",  # Conflicts with formatter
+      "PLR09",   # Too many <...>
+      "PLR2004", # Magic value used in comparison
+      "TCH001",  # Move into type-checking block <-- plum-dispatch
+    ]
 
-[tool.ruff.lint.per-file-ignores]
-"tests/**" = ["ANN", "INP001", "S101", "T20"]
-"noxfile.py" = ["T20"]
-"docs/conf.py" = ["INP001"]
+    [tool.ruff.lint.per-file-ignores]
+      "tests/**" = [
+        "ANN",
+        "INP001",
+        "S101",
+        "T20",
+      ]
+      "noxfile.py" = [
+        "T20",
+      ]
+      "docs/conf.py" = [
+        "INP001",
+      ]
 
-[tool.ruff.lint.isort]
-extra-standard-library = ["typing_extensions"]
-known-first-party = ["galactic_dynamics_interoperability"]
-combine-as-imports = true
-
+    [tool.ruff.lint.isort]
+      extra-standard-library = [
+        "typing_extensions",
+      ]
+      known-first-party = [
+        "galactic_dynamics_interoperability",
+      ]
+      combine-as-imports = true
 
 
 [tool.pylint]
-py-version = "3.10"
-ignore-paths = [".*/_version.py"]
-reports.output-format = "colorized"
-similarities.ignore-imports = "yes"
-messages_control.disable = [
-  "design",
-  "fixme",
-  "line-too-long",
-  "missing-module-docstring",
-  "missing-function-docstring",
-  "wrong-import-position",
-]
+  py-version = "3.10"
+  ignore-paths = [
+    ".*/_version.py",
+  ]
+  reports.output-format = "colorized"
+  similarities.ignore-imports = "yes"
+  messages_control.disable = [
+    "design",
+    "fixme",
+    "line-too-long",
+    "missing-function-docstring",
+    "missing-module-docstring",
+    "wrong-import-position",
+  ]

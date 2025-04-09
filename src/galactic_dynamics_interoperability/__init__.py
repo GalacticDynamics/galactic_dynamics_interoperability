@@ -5,7 +5,7 @@ rights reserved.
 
 """
 
-__all__ = [
+__all__ = [  # noqa: RUF022
     "__version__",
     # Core
     "convert_potential",
