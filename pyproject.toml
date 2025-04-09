@@ -163,7 +163,7 @@
       "ISC001",  # Conflicts with formatter
       "PLR09",   # Too many <...>
       "PLR2004", # Magic value used in comparison
-      "TCH001",  # Move into type-checking block <-- plum-dispatch
+      "TC001",  # Move into type-checking block <-- plum-dispatch
     ]
 
     [tool.ruff.lint.per-file-ignores]
