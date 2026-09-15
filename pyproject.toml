@@ -58,7 +58,7 @@
     "cz-conventional-gitmoji>=0.6.1",
     { include-group = "docs" },
     { include-group = "test" },
-    "pre-commit>=4.1.0",
+    "prek>=0.5.3",
   ]
   test = [
     "pytest >=6",
