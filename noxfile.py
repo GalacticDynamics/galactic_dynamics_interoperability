@@ -1,6 +1,7 @@
 """Nox configuration."""
 
 import argparse
+import os
 import shutil
 from pathlib import Path
 
@@ -17,12 +18,16 @@ nox.options.default_venv_backend = "uv|virtualenv"
 def lint(session: nox.Session) -> None:
     """Run the linter."""
     session.install("prek")
+    # Not a real commit -- no-commit-to-branch would always fail here.
+    # Merge into any SKIP already set, rather than clobber it.
+    skip = ",".join(filter(None, [os.environ.get("SKIP"), "no-commit-to-branch"]))
     session.run(
         "prek",
         "run",
         "--all-files",
         "--show-diff-on-failure",
         *session.posargs,
+        env={"SKIP": skip},
     )
 
 
