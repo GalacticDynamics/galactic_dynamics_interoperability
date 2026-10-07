@@ -4,6 +4,9 @@
 # ///
 """Draw the galactic_dynamics_interoperability logo: a galaxy, converted.
 
+Copyright (c) 2024 Galactic Dynamics Interoperability Library Maintainers. All
+rights reserved.
+
 A two-armed spiral galaxy inside two circular arrows, one teal and one purple,
 chasing each other round it: objects converted from one galactic dynamics
 library to another and back, on GalacticDynamics' dark square. The shapes are

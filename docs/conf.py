@@ -1,4 +1,8 @@
-"""Sphinx configuration."""
+"""Sphinx configuration.
+
+Copyright (c) 2024 Galactic Dynamics Interoperability Library Maintainers. All
+rights reserved.
+"""
 
 import importlib.metadata
 
