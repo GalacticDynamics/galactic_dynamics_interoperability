@@ -1,4 +1,8 @@
-"""Base class for library type on which to dispatch."""
+"""Base class for library type on which to dispatch.
+
+Copyright (c) 2024 Galactic Dynamics Interoperability Library Maintainers. All
+rights reserved.
+"""
 
 from __future__ import annotations
 

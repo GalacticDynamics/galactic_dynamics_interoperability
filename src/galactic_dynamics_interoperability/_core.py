@@ -1,5 +1,8 @@
 """Input/output/conversion of potential objects.
 
+Copyright (c) 2024 Galactic Dynamics Interoperability Library Maintainers. All
+rights reserved.
+
 This module contains the machinery for I/O and conversion of potential objects.
 Conversion is useful for e.g. converting a `galax.potential.AbstractPotential`
 object to a `gala.potential.PotentialBase` object.
@@ -18,7 +21,7 @@ from plum import dispatch
 from ._base import AbstractInteroperableLibrary
 
 
-@dispatch.abstract  # type: ignore[misc]
+@dispatch.abstract  # type: ignore[untyped-decorator]
 def convert_potential(
     to_: Ann[
         AbstractInteroperableLibrary | Any,

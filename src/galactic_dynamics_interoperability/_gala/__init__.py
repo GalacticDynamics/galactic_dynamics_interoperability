@@ -1,4 +1,8 @@
-"""Gala interoperability."""
+"""Gala interoperability.
+
+Copyright (c) 2024 Galactic Dynamics Interoperability Library Maintainers. All
+rights reserved.
+"""
 
 from __future__ import annotations
 
@@ -19,7 +23,7 @@ class GalaLibrary(AbstractInteroperableLibrary):
 
 
 # plum support
-@conversion_method(type_from=object, type_to=GalaLibrary)  # type: ignore[misc]
+@conversion_method(type_from=object, type_to=GalaLibrary)  # type: ignore[untyped-decorator]
 def convert_to_gala_library(obj: object) -> Any:
     """Convert to an :class:`GalaLibrary` object."""
     convert_potential(GalaLibrary, obj)

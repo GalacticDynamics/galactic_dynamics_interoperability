@@ -1,4 +1,8 @@
-"""Doctest configuration."""
+"""Doctest configuration.
+
+Copyright (c) 2024 Galactic Dynamics Interoperability Library Maintainers. All
+rights reserved.
+"""
 
 from doctest import ELLIPSIS, NORMALIZE_WHITESPACE
 

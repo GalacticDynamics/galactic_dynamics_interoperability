@@ -1,4 +1,8 @@
-"""Nox configuration."""
+"""Nox configuration.
+
+Copyright (c) 2024 Galactic Dynamics Interoperability Library Maintainers. All
+rights reserved.
+"""
 
 import argparse
 import os
