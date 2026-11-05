@@ -7,6 +7,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 concurrency:
   # Each push to main gets its own group, so merges never cancel each other
   # and main keeps a complete CI record. All other events keep the per-ref
